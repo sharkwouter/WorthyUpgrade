@@ -7,7 +7,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerItemDamageEvent;
-import org.bukkit.event.player.PlayerToggleFlightEvent;
 import org.bukkit.inventory.ItemStack;
 
 public class PlayerEventHandler implements Listener {
@@ -22,22 +21,8 @@ public class PlayerEventHandler implements Listener {
 	}
 	
 	/*
-	 * Use the fly button for healing
-	 */
-	
-	@EventHandler
-	public void OnPlayerToggleFlightEvent(PlayerToggleFlightEvent e) {
-		e.setCancelled(true);
-		Player player = e.getPlayer();
-		if (player.getHealth() < 10.0) {
-			player.setHealth(player.getHealth() + 10.0);
-		} else {
-			player.setHealth(20.0);
-		}
-	}
-	
-	/*
-	 * Don't drop everything when the player dies
+	 * Only drop the items found in item slots higher than 9
+	 * This will allow players to keep what is on their hotbar
 	 */
 	
 	@EventHandler
