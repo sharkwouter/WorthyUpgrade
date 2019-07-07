@@ -23,6 +23,7 @@ public class PlayerEventHandler implements Listener {
 	/*
 	 * Only drop the items found in item slots higher than 9
 	 * This will allow players to keep what is on their hotbar
+	 * Slots after 35 are armor and the offhand, we ignore those as well
 	 */
 	
 	@EventHandler
@@ -32,8 +33,10 @@ public class PlayerEventHandler implements Listener {
 		ListIterator<ItemStack> inventory = player.getInventory().iterator();
 		
 		int slot = 0;
-		while (inventory.hasNext()) {
+		while (inventory.hasNext() && slot < 36) {
 			ItemStack item = inventory.next();
+
+			//Ignore the hotbar and empty slots
 			if (slot < 9 || item == null) {
 				slot++;
 				continue;
