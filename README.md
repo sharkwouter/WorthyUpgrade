@@ -6,3 +6,5 @@ A minecraft plugin which give players a different upgrade path. I felt that item
 - Upon death, players do not lose items in their hotbar, offhand and armor slots
 
 More coming in the future. Currently this plugin is still very much WIP.
+
+![](https://github.com/sharkwouter/WorthyUpgrade/raw/master/WorthUpgrade.png)
