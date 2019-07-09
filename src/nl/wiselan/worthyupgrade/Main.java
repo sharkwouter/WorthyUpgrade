@@ -8,5 +8,6 @@ public class Main extends JavaPlugin implements Listener {
 	@Override
 	public void onEnable() {
 		getServer().getPluginManager().registerEvents(new PlayerEventHandler(), this);
+		getServer().getPluginManager().registerEvents(new EnchantEventHandler(), this);
 	}
 }
