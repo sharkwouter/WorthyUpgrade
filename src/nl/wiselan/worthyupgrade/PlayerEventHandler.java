@@ -2,12 +2,17 @@ package nl.wiselan.worthyupgrade;
 
 import java.util.ListIterator;
 
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.Damageable;
+
 
 public class PlayerEventHandler implements Listener {
 	
@@ -45,6 +50,26 @@ public class PlayerEventHandler implements Listener {
 			player.getWorld().dropItem(player.getLocation(), item);
 			
 			slot++;
+		}
+	}
+
+	/*
+	 * Set the damage to an item to 0 when it is picked up by a player
+	 */
+
+	@EventHandler
+	public void OnPlayerPickupEvent(EntityPickupItemEvent e) {
+		if (e.getEntity() instanceof Player) {
+			Item item = e.getItem();
+			ItemStack itemstack = item.getItemStack();
+
+			if(itemstack.hasItemMeta()) {
+				if (itemstack.getItemMeta() instanceof Damageable) {
+					Damageable meta = (Damageable) itemstack.getItemMeta();
+					meta.setDamage(0);
+					itemstack.setItemMeta((ItemMeta) meta);
+				}
+			}
 		}
 	}
 }
