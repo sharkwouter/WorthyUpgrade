@@ -18,10 +18,10 @@ public class EnchantEventHandler implements Listener {
 		if (e == null || e.isCancelled()) {
 			return;
 		}
-		
+
 		ItemStack item = e.getItem();
 		EnchantmentOffer[] offers = e.getOffers();
-				
+
 		for(EnchantmentOffer offer : offers) {
 			if(offer.getEnchantment().equals(Enchantment.DURABILITY) ) {
 				switch(item.getType()) {

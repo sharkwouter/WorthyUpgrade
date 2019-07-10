@@ -13,6 +13,5 @@ More coming in the future.
 ## Future changes
 The following changes are likely to be added to this plugin in the future, but they are still being worked on:
  - Make players keep some of their XP when dying
- - Remove enchants which increase durability
  - Add additional upgrade possibilities for armor and tools
  - Add additional monsters when players reach a certain armor type
